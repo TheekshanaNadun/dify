@@ -943,7 +943,7 @@ services:
       REDISCLI_AUTH: ${REDIS_PASSWORD:-difyai123456}
     volumes:
       # Mount the redis data directory to the container.
-      - ./volumes/redis/data:/data
+      - dify_redis_data:/data
     # Set the redis password when startup redis server.
     command: redis-server --requirepass ${REDIS_PASSWORD:-difyai123456}
     healthcheck:
@@ -1639,4 +1639,5 @@ volumes:
   oradata:
   dify_es01_data:
   dify_postgres_data:
+  dify_redis_data:
   
