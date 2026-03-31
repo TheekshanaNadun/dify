@@ -887,7 +887,7 @@ services:
                -c 'statement_timeout=${POSTGRES_STATEMENT_TIMEOUT:-0}'
                -c 'idle_in_transaction_session_timeout=${POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT:-0}'
     volumes:
-      - ./volumes/db/data:/var/lib/postgresql/data
+      - dify_postgres_data:/var/lib/postgresql/data
     healthcheck:
       test:
         [
@@ -903,6 +903,7 @@ services:
       interval: 1s
       timeout: 3s
       retries: 60
+      
 
   # The mysql database.
   db_mysql:
@@ -1637,3 +1638,5 @@ networks:
 volumes:
   oradata:
   dify_es01_data:
+  dify_postgres_data:
+  
